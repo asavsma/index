@@ -137,44 +137,54 @@ errores++;
     
 }
 
-document.getElementById("puntos").innerHTML =
-puntos;
-
-setTimeout(function(){
+function siguienteResiduo(){
 
 actual++;
 
 if(actual < nivel1.length){
 
-cargarResiduo();
+    cargarResiduo();
 
-document.getElementById("mensaje").innerHTML = "";
+    document.getElementById("mensaje").innerHTML = "";
 
 }else{
 
-document.getElementById("juego").innerHTML =
+    document.getElementById("juego").innerHTML =
 
-"<h1>🌟 Nivel 1 completado</h1>" +
+    "<h1>🌟 Nivel 1 completado</h1>" +
 
-"<p>🏆 Puntos: " + puntos + "</p>" +
+    "<p>🏆 Puntos: " + puntos + "</p>" +
 
-"<p>✅ Aciertos: " + aciertos + "</p>" +
+    "<p>✅ Aciertos: " + aciertos + "</p>" +
 
-"<p>❌ Errores: " + errores + "</p>" +
+    "<p>❌ Errores: " + errores + "</p>" +
 
-"<br>" +
+    "<br>" +
 
-"<p><strong>💡 Dato climático</strong></p>" +
+    "<p><strong>💡 Dato climático</strong></p>" +
 
-"<p>Separar correctamente los residuos ayuda a reducir emisiones y facilita el reciclaje.</p>" +
+    "<p>Separar correctamente los residuos ayuda a reducir emisiones y facilita el reciclaje.</p>" +
 
-"<br>" +
+    "<br>" +
 
-"<button id='continuar'>CONTINUAR</button>";
+    "<button onclick='iniciarNivel2()'>CONTINUAR</button>";
 
 }
 
-},1000);
+}    
+    
+document.getElementById("puntos").innerHTML =
+puntos;
+
+document.getElementById("mensaje").innerHTML +=
+
+"<br><br>" +
+
+nivel1[actual].explicacion +
+
+"<br><br>" +
+
+"<button onclick='siguienteResiduo()'>SIGUIENTE</button>";
 
 }
 const nivel1 = [
