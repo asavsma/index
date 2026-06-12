@@ -169,17 +169,41 @@ explicacion:"Los aparatos electrónicos contienen materiales que pueden recupera
 }
 ];
 
+const ecoConsejos = [
+
+"💚 <strong>Cada acción cuenta.</strong><br><br>Separar los residuos en orgánicos e inorgánicos es el primer paso para facilitar su aprovechamiento y reducir la cantidad de basura que llega a los rellenos sanitarios.",
+
+"🌱 <strong>Los residuos orgánicos tienen una segunda vida.</strong><br><br>Pueden convertirse en composta, un abono natural que mejora la calidad del suelo y ayuda al crecimiento de las plantas.",
+
+"♻️ <strong>Reciclar empieza en casa.</strong><br><br>Una correcta separación permite recuperar materiales y aprovechar mejor los recursos.",
+
+"📦 <strong>Evita contaminar materiales reciclables.</strong><br><br>Cuando mezclamos residuos orgánicos con materiales reciclables, estos pueden perder la posibilidad de reciclarse.",
+
+"🥤 <strong>Ponlo en práctica.</strong><br><br>Antes de depositar una botella, lata o envase en el contenedor correspondiente, procura vaciar completamente su contenido para facilitar su reciclaje.",
+
+"🔋 <strong>Las pilas requieren atención especial.</strong><br><br>No deben mezclarse con la basura común; lo ideal es llevarlas a un centro de acopio autorizado.",
+
+"📄 <strong>El cartón limpio se recicla mejor.</strong><br><br>Mantén las cajas libres de restos de comida o líquidos para facilitar su aprovechamiento.",
+
+"🌎 <strong>Separar correctamente beneficia a todos.</strong><br><br>Una buena clasificación facilita el trabajo de recicladores y centros de aprovechamiento, impulsando una gestión más eficiente de los residuos."
+
+];
+    
 let actual = 0;
 let puntos = 0;
 let aciertos = 0;
 let errores = 0;
+let consejoAleatorio = "";
 
 function iniciarJuego(){
     document.getElementById("inicio").classList.add("oculto");
     document.getElementById("juego").classList.remove("oculto");
 
     nivel1.sort(() => Math.random() - 0.5);
-
+    
+    consejoAleatorio =
+    ecoConsejos[Math.floor(Math.random() * ecoConsejos.length)];
+    
     actual = 0;
     puntos = 0;
     aciertos = 0;
@@ -227,8 +251,9 @@ function siguienteResiduo(){
         "<p>✅ Aciertos: " + aciertos + "</p>" +
         "<p>❌ Errores: " + errores + "</p>" +
         "<br>" +
-        "<p><strong>💡 Dato climático</strong></p>" +
-        "<p>Separar correctamente los residuos ayuda a reducir emisiones y facilita el reciclaje.</p>" +
+        "<div style='margin:20px auto;padding:20px;background:#eef8ee;border-radius:12px;max-width:700px;text-align:left;'>" +
+        consejoAleatorio +
+        "</div>" +
         "<br>" +
         "<button onclick='iniciarNivel2()'>CONTINUAR</button>";
     }
