@@ -406,7 +406,9 @@ function siguienteResiduo(){
 
 function iniciarNivel2(){
     nivelActual = 2;
-    residuosActuales = nivel2.sort(() => Math.random() - 0.5);
+    residuosActuales = nivel2
+    .sort(() => Math.random() - 0.5)
+    .slice(0, 10);
 
     actual = 0;
     puntos = 0;
