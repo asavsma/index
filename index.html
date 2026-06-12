@@ -1,6 +1,8 @@
-<html>
+<!DOCTYPE html>
+<html lang="es">
 
 <head>
+<meta charset="UTF-8">
 <title>EcoReto</title>
 </head>
 
@@ -8,14 +10,41 @@
 
 <h1>♻️ EcoReto</h1>
 
-<p>🥤 Botella de plástico</p>
+<p id="residuo">🥤 Botella de plástico</p>
 
-<button>🟢 Orgánico</button>
+<button onclick="verificar('organico')">
+🟢 Orgánico
+</button>
 
-<button>🔵 Reciclable</button>
+<button onclick="verificar('reciclable')">
+🔵 Reciclable
+</button>
 
-<button>🟠 Especial</button>
+<button onclick="verificar('especial')">
+🟠 Especial
+</button>
+
+<p id="mensaje"></p>
+
+<script>
+
+function verificar(tipo){
+
+    if(tipo === "reciclable"){
+
+        document.getElementById("mensaje").innerHTML =
+        "✅ Correcto";
+
+    }else{
+
+        document.getElementById("mensaje").innerHTML =
+        "❌ Incorrecto";
+
+    }
+
+}
+
+</script>
 
 </body>
-
 </html>
