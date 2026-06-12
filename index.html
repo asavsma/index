@@ -169,6 +169,141 @@ explicacion:"Los aparatos electrónicos contienen materiales que pueden recupera
 }
 ];
 
+const nivel2 = [
+{
+emoji:"🍌",
+nombre:"Cáscara de plátano",
+tipo:"organico",
+explicacion:"🌱 <strong>Aprende.</strong><br><br>Las cáscaras de frutas son residuos orgánicos y pueden convertirse en composta, ayudando a enriquecer el suelo."
+},
+{
+emoji:"🥬",
+nombre:"Restos de verduras",
+tipo:"organico",
+explicacion:"🌱 <strong>Aprende.</strong><br><br>Los residuos vegetales son biodegradables y pueden aprovecharse mediante compostaje."
+},
+{
+emoji:"📦",
+nombre:"Caja de cereal",
+tipo:"papel",
+explicacion:"💡 <strong>Ponlo en práctica.</strong><br><br>Mantén las cajas limpias y secas antes de reciclarlas para facilitar su aprovechamiento."
+},
+{
+emoji:"📰",
+nombre:"Periódico",
+tipo:"papel",
+explicacion:"♻️ <strong>Aprende.</strong><br><br>El papel limpio puede reciclarse para fabricar nuevos productos y reducir el consumo de recursos naturales."
+},
+{
+emoji:"🪵",
+nombre:"Tabla de madera",
+tipo:"madera",
+explicacion:"♻️ <strong>Dale una segunda vida.</strong><br><br>La madera puede reutilizarse o aprovecharse antes de convertirse en residuo."
+},
+{
+emoji:"🪑",
+nombre:"Restos de mueble de madera",
+tipo:"madera",
+explicacion:"♻️ <strong>Dale una segunda vida.</strong><br><br>Antes de desechar un mueble, considera repararlo, reutilizarlo o donarlo. Si ya no es útil, sepáralo correctamente para facilitar su aprovechamiento."
+},
+{
+emoji:"🥤",
+nombre:"Botella PET",
+tipo:"plastico",
+explicacion:"💡 <strong>Ponlo en práctica.</strong><br><br>Vacía completamente su contenido y, si es posible, aplástala antes de reciclarla para reducir su volumen."
+},
+{
+emoji:"🧴",
+nombre:"Envase de detergente",
+tipo:"plastico",
+explicacion:"💡 <strong>Ponlo en práctica.</strong><br><br>Procura vaciar el envase y cerrar su tapa antes de depositarlo en el contenedor correspondiente."
+},
+{
+emoji:"👕",
+nombre:"Camiseta vieja",
+tipo:"tela",
+explicacion:"♻️ <strong>Dale una segunda vida.</strong><br><br>Si la prenda aún está en buen estado, considera donarla o reutilizarla antes de desecharla."
+},
+{
+emoji:"🧦",
+nombre:"Calcetín",
+tipo:"tela",
+explicacion:"♻️ <strong>Aprende.</strong><br><br>Algunos textiles pueden reciclarse o reutilizarse para fabricar nuevos productos."
+},
+{
+emoji:"🍾",
+nombre:"Botella de vidrio",
+tipo:"vidrio",
+explicacion:"💡 <strong>Ponlo en práctica.</strong><br><br>Vacía su contenido antes de desecharla y evita romperla para proteger a quienes manejan los residuos."
+},
+{
+emoji:"🫙",
+nombre:"Frasco de vidrio",
+tipo:"vidrio",
+explicacion:"♻️ <strong>Aprende.</strong><br><br>El vidrio puede reciclarse muchas veces sin perder sus propiedades."
+},
+{
+emoji:"🥫",
+nombre:"Lata de aluminio",
+tipo:"metal",
+explicacion:"💡 <strong>Ponlo en práctica.</strong><br><br>Vacía completamente la lata antes de reciclarla para mantener limpios los materiales recuperables."
+},
+{
+emoji:"🔩",
+nombre:"Tornillo",
+tipo:"metal",
+explicacion:"♻️ <strong>Aprende.</strong><br><br>Los metales pueden recuperarse y utilizarse nuevamente mediante procesos de reciclaje."
+},
+{
+emoji:"🔋",
+nombre:"Pila",
+tipo:"especial",
+explicacion:"⚠️ <strong>Importante.</strong><br><br>Las pilas son residuos inorgánicos de manejo especial. Deposítalas en centros de acopio autorizados y nunca las mezcles con la basura doméstica."
+},
+{
+emoji:"📱",
+nombre:"Celular viejo",
+tipo:"especial",
+explicacion:"⚠️ <strong>Importante.</strong><br><br>Los celulares contienen materiales valiosos que pueden recuperarse mediante reciclaje especializado. Evita desecharlos junto con la basura doméstica."
+},
+{
+emoji:"🔌",
+nombre:"Cable eléctrico",
+tipo:"especial",
+explicacion:"⚠️ <strong>Importante.</strong><br><br>Los cables forman parte de los residuos electrónicos y deben llevarse a campañas o centros de acopio especializados."
+},
+{
+emoji:"💻",
+nombre:"Teclado de computadora",
+tipo:"especial",
+explicacion:"⚠️ <strong>Importante.</strong><br><br>Los dispositivos electrónicos requieren un manejo especial para evitar contaminación y recuperar materiales útiles."
+},
+{
+emoji:"🧻",
+nombre:"Papel higiénico usado",
+tipo:"noreciclable",
+explicacion:"🚫 <strong>Manejo adecuado.</strong><br><br>Este residuo no puede reciclarse. Deposítalo en una bolsa bien cerrada para ayudar a prevenir la contaminación cruzada."
+},
+{
+emoji:"🩸",
+nombre:"Toalla sanitaria usada",
+tipo:"noreciclable",
+explicacion:"🚫 <strong>Manejo adecuado.</strong><br><br>Colócala en una bolsa bien cerrada antes de desecharla y no la mezcles con materiales reciclables."
+},
+{
+emoji:"👶",
+nombre:"Pañal desechable",
+tipo:"noreciclable",
+explicacion:"🚫 <strong>Manejo adecuado.</strong><br><br>Los pañales desechables no son reciclables y deben depositarse en una bolsa cerrada antes de su disposición final."
+},
+{
+emoji:"🚬",
+nombre:"Colilla de cigarro",
+tipo:"noreciclable",
+explicacion:"🚫 <strong>Manejo adecuado.</strong><br><br>Las colillas contienen sustancias contaminantes y nunca deben arrojarse al suelo o al drenaje."
+}
+];
+    
 const ecoConsejos = [
 
 "💚 <strong>Cada acción cuenta.</strong><br><br>Separar los residuos en orgánicos e inorgánicos es el primer paso para facilitar su aprovechamiento y reducir la cantidad de basura que llega a los rellenos sanitarios.",
@@ -194,6 +329,8 @@ let puntos = 0;
 let aciertos = 0;
 let errores = 0;
 let consejoAleatorio = "";
+let nivelActual = 1;
+let residuosActuales = [];
 
 function iniciarJuego(){
     document.getElementById("inicio").classList.add("oculto");
@@ -268,9 +405,76 @@ function siguienteResiduo(){
 }
 
 function iniciarNivel2(){
-    alert("Aquí iniciaremos el Nivel 2.");
+    nivelActual = 2;
+    residuosActuales = nivel2.sort(() => Math.random() - 0.5);
+
+    actual = 0;
+    puntos = 0;
+    aciertos = 0;
+    errores = 0;
+
+    document.getElementById("juego").innerHTML =
+    "<h2>NIVEL 2: Clasificación por material</h2>" +
+    "<p>🏆 Puntos: <span id='puntos'>0</span></p>" +
+    "<h3 id='progreso'>Residuo 1/" + residuosActuales.length + "</h3>" +
+    "<h1 id='emoji'></h1>" +
+    "<h2 id='nombre'></h2>" +
+    "<br>" +
+    "<button onclick=\"verificarNivel2('organico')\">🟢 Orgánico</button> " +
+    "<button onclick=\"verificarNivel2('papel')\">📄 Papel</button> " +
+    "<button onclick=\"verificarNivel2('madera')\">🪵 Madera</button> " +
+    "<button onclick=\"verificarNivel2('plastico')\">🧴 Plástico</button> " +
+    "<button onclick=\"verificarNivel2('tela')\">👕 Tela</button> " +
+    "<button onclick=\"verificarNivel2('vidrio')\">🍾 Vidrio</button> " +
+    "<button onclick=\"verificarNivel2('metal')\">🥫 Metal</button> " +
+    "<button onclick=\"verificarNivel2('inorganico')\">⚫ Inorgánico</button>" +
+    "<button onclick=\"verificarNivel2('noreciclable')\">🚫 No reciclable</button>" +
+    "<p id='mensaje'></p>";
+
+    cargarResiduoNivel2();
+}
+function cargarResiduoNivel2(){
+    document.getElementById("emoji").innerHTML = residuosActuales[actual].emoji;
+    document.getElementById("nombre").innerHTML = residuosActuales[actual].nombre;
+    document.getElementById("progreso").innerHTML = "Residuo " + (actual + 1) + "/" + residuosActuales.length;
+    document.getElementById("puntos").innerHTML = puntos;
 }
 
+function verificarNivel2(tipo){
+    if(tipo === residuosActuales[actual].tipo){
+        document.getElementById("mensaje").innerHTML = "✅ ¡Correcto!";
+        puntos += 10;
+        aciertos++;
+    }else{
+        document.getElementById("mensaje").innerHTML = "❌ Respuesta incorrecta";
+        errores++;
+    }
+
+    document.getElementById("puntos").innerHTML = puntos;
+
+    document.getElementById("mensaje").innerHTML +=
+    "<br><br>" +
+    residuosActuales[actual].explicacion +
+    "<br><br>" +
+    "<button onclick='siguienteResiduoNivel2()'>SIGUIENTE</button>";
+}
+
+function siguienteResiduoNivel2(){
+    actual++;
+
+    if(actual < residuosActuales.length){
+        cargarResiduoNivel2();
+        document.getElementById("mensaje").innerHTML = "";
+    }else{
+        document.getElementById("juego").innerHTML =
+        "<h1>🏆 ¡EcoReto completado!</h1>" +
+        "<p>🏆 Puntos Nivel 2: " + puntos + "</p>" +
+        "<p>✅ Aciertos: " + aciertos + "</p>" +
+        "<p>❌ Errores: " + errores + "</p>" +
+        "<br>" +
+        "<button onclick='location.reload()'>JUGAR DE NUEVO</button>";
+    }
+}
 </script>
 
 </body>
