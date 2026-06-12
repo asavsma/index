@@ -112,6 +112,8 @@ document.getElementById("inicio").classList.add("oculto");
 
 document.getElementById("juego").classList.remove("oculto");
 
+nivel1.sort(() => Math.random() - 0.5);
+
 cargarResiduo();
 
 }
@@ -124,11 +126,15 @@ document.getElementById("mensaje").innerHTML =
 
 puntos += 10;
 
+aciertos++;
+
 }else{
 
 document.getElementById("mensaje").innerHTML =
 "❌ Incorrecto";
 
+errores++;
+    
 }
 
 document.getElementById("puntos").innerHTML =
@@ -152,7 +158,19 @@ document.getElementById("juego").innerHTML =
 
 "<p>🏆 Puntos: " + puntos + "</p>" +
 
-"<button>CONTINUAR</button>";
+"<p>✅ Aciertos: " + aciertos + "</p>" +
+
+"<p>❌ Errores: " + errores + "</p>" +
+
+"<br>" +
+
+"<p><strong>💡 Dato climático</strong></p>" +
+
+"<p>Separar correctamente los residuos ayuda a reducir emisiones y facilita el reciclaje.</p>" +
+
+"<br>" +
+
+"<button id='continuar'>CONTINUAR</button>";
 
 }
 
@@ -189,7 +207,9 @@ tipo:"inorganico"
 
 let actual = 0;
 let puntos = 0;
-
+let aciertos = 0;
+let errores = 0;
+    
 function cargarResiduo(){
 
 document.getElementById("emoji").innerHTML =
