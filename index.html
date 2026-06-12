@@ -10,7 +10,9 @@
 
 <h1>♻️ EcoReto</h1>
 
-<p id="residuo">🥤 Botella de plástico</p>
+<h3 id="progreso">Residuo 1/4</h3>
+
+<p id="residuo"></p>
 
 <button onclick="verificar('organico')">
 🟢 Orgánico
@@ -26,25 +28,95 @@
 
 <p id="mensaje"></p>
 
+<p>
+🏆 Puntos: <span id="puntos">0</span>
+</p>
+
 <script>
+
+let puntos = 0;
+
+let actual = 0;
+
+const residuos = [
+
+{
+nombre:"🥤 Botella de plástico",
+tipo:"reciclable"
+},
+
+{
+nombre:"🍌 Cáscara de plátano",
+tipo:"organico"
+},
+
+{
+nombre:"🔋 Pila",
+tipo:"especial"
+},
+
+{
+nombre:"📦 Caja de cartón",
+tipo:"reciclable"
+}
+
+];
+
+function mostrarResiduo(){
+
+document.getElementById("residuo").innerHTML =
+residuos[actual].nombre;
+
+document.getElementById("progreso").innerHTML =
+"Residuo " + (actual + 1) + "/" + residuos.length;
+
+}
 
 function verificar(tipo){
 
-    if(tipo === "reciclable"){
+if(tipo === residuos[actual].tipo){
 
-        document.getElementById("mensaje").innerHTML =
-        "✅ Correcto";
+document.getElementById("mensaje").innerHTML =
+"✅ Correcto";
 
-    }else{
+puntos += 10;
 
-        document.getElementById("mensaje").innerHTML =
-        "❌ Incorrecto";
+}else{
 
-    }
+document.getElementById("mensaje").innerHTML =
+"❌ Incorrecto";
 
 }
+
+document.getElementById("puntos").innerHTML =
+puntos;
+
+setTimeout(function(){
+
+actual++;
+
+if(actual < residuos.length){
+
+mostrarResiduo();
+
+document.getElementById("mensaje").innerHTML = "";
+
+}else{
+
+document.body.innerHTML =
+"<h1>🎉 Juego terminado</h1>" +
+"<h2>Puntuación: " + puntos + "</h2>";
+
+}
+
+},1000);
+
+}
+
+mostrarResiduo();
 
 </script>
 
 </body>
+
 </html>
