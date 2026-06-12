@@ -331,7 +331,13 @@ let errores = 0;
 let consejoAleatorio = "";
 let nivelActual = 1;
 let residuosActuales = [];
-
+let puntosNivel1 = 0;
+let puntosNivel2 = 0;
+let aciertosNivel1 = 0;
+let erroresNivel1 = 0;
+let aciertosNivel2 = 0;
+let erroresNivel2 = 0;
+    
 function iniciarJuego(){
     document.getElementById("inicio").classList.add("oculto");
     document.getElementById("juego").classList.remove("oculto");
@@ -382,6 +388,9 @@ function siguienteResiduo(){
         cargarResiduo();
         document.getElementById("mensaje").innerHTML = "";
     }else{
+    puntosNivel1 = puntos;
+    aciertosNivel1 = aciertos;
+    erroresNivel1 = errores;    
         document.getElementById("juego").innerHTML =
         "<h1>🌟 Nivel 1 completado</h1>" +
         "<p>🏆 Puntos: " + puntos + "</p>" +
@@ -468,14 +477,89 @@ function siguienteResiduoNivel2(){
         cargarResiduoNivel2();
         document.getElementById("mensaje").innerHTML = "";
     }else{
-        document.getElementById("juego").innerHTML =
-        "<h1>🏆 ¡EcoReto completado!</h1>" +
-        "<p>🏆 Puntos Nivel 2: " + puntos + "</p>" +
-        "<p>✅ Aciertos: " + aciertos + "</p>" +
-        "<p>❌ Errores: " + errores + "</p>" +
-        "<br>" +
-        "<button onclick='location.reload()'>JUGAR DE NUEVO</button>";
+       puntosNivel2 = puntos;
+    aciertosNivel2 = aciertos;
+    erroresNivel2 = errores;
+
+    mostrarPantallaFinal();
     }
+}
+
+function obtenerInsignia(puntosTotales){
+
+    if(puntosTotales <= 79){
+        return {
+            emoji:"🌱",
+            titulo:"Aprendiz Ambiental",
+            mensaje:"Estás comenzando tu camino hacia una mejor separación de residuos. Sigue practicando y cada acción contará para cuidar el planeta."
+        };
+    }
+
+    if(puntosTotales <= 139){
+        return {
+            emoji:"♻️",
+            titulo:"Separador Responsable",
+            mensaje:"Conoces las bases de la separación de residuos. Tus decisiones ayudan a reducir la contaminación y aprovechar mejor los materiales."
+        };
+    }
+
+    if(puntosTotales <= 189){
+        return {
+            emoji:"🌳",
+            titulo:"Guardián Ambiental",
+            mensaje:"Excelente trabajo. Demostraste un gran conocimiento sobre la correcta clasificación de residuos."
+        };
+    }
+
+    return {
+        emoji:"👑",
+        titulo:"Rey Reciclador",
+        mensaje:"¡Impresionante! Has dominado la separación de residuos y eres un ejemplo de compromiso ambiental."
+    };
+}
+
+function mostrarPantallaFinal(){
+
+    let puntosTotales = puntosNivel1 + puntosNivel2;
+    let aciertosTotales = aciertosNivel1 + aciertosNivel2;
+    let erroresTotales = erroresNivel1 + erroresNivel2;
+
+    let insignia = obtenerInsignia(puntosTotales);
+
+    document.getElementById("juego").innerHTML =
+    "<h1>🎉 ¡Felicidades!</h1>" +
+
+    "<h2>Has completado EcoReto</h2>" +
+
+    "<p><strong>🏆 Puntuación total:</strong> " + puntosTotales + " pts</p>" +
+
+    "<hr>" +
+
+    "<h3>Resultados</h3>" +
+
+    "<p><strong>Nivel 1:</strong> " + aciertosNivel1 + "/10 aciertos</p>" +
+
+    "<p><strong>Nivel 2:</strong> " + aciertosNivel2 + "/10 aciertos</p>" +
+
+    "<p><strong>Total:</strong> " + aciertosTotales + " aciertos y " + erroresTotales + " errores</p>" +
+
+    "<div style='margin:30px auto;padding:25px;background:#eef8ee;border-radius:16px;max-width:650px;box-shadow:0 4px 10px rgba(0,0,0,.08);'>" +
+
+    "<div style='font-size:60px;'>" + insignia.emoji + "</div>" +
+
+    "<p style='font-weight:bold;color:#2e7d32;font-size:18px;margin-top:10px;'>INSIGNIA OBTENIDA</p>" +
+
+    "<h2>" + insignia.titulo + "</h2>" +
+
+    "<p>" + insignia.mensaje + "</p>" +
+
+    "</div>" +
+
+    "<p><strong>💚 Cada acción cuenta.</strong><br>Separar correctamente tus residuos contribuye a una cultura ambiental más responsable.</p>" +
+
+    "<br>" +
+
+    "<button onclick='location.reload()'>JUGAR NUEVAMENTE</button>";
 }
 </script>
 
