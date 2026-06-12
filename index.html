@@ -3,117 +3,97 @@
 
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>EcoReto</title>
+
+<style>
+
+body{
+    font-family:Arial, sans-serif;
+    text-align:center;
+    background:#f5f9f5;
+    padding:40px;
+}
+
+.pantalla{
+    max-width:800px;
+    margin:auto;
+}
+
+h1{
+    color:#2e7d32;
+}
+
+button{
+    background:#4CAF50;
+    color:white;
+    border:none;
+    padding:15px 30px;
+    font-size:18px;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+.oculto{
+    display:none;
+}
+
+</style>
+
 </head>
 
 <body>
 
-<h1>♻️ EcoReto</h1>
+<!-- PANTALLA DE INICIO -->
 
-<h3 id="progreso">Residuo 1/4</h3>
+<div id="inicio" class="pantalla">
 
-<p id="residuo"></p>
+    <h1>♻️ EcoReto: Separa tus residuos</h1>
 
-<button onclick="verificar('organico')">
-🟢 Orgánico
-</button>
+    <p>
+        Aprende a clasificar correctamente los residuos
+        y conviértete en un experto del reciclaje.
+    </p>
 
-<button onclick="verificar('reciclable')">
-◯ Inorgánico
-</button>
+    <br>
 
+    <button onclick="iniciarJuego()">
+        COMENZAR
+    </button>
 
-<p id="mensaje"></p>
+</div>
 
-<p>
-🏆 Puntos: <span id="puntos">0</span>
-</p>
+<!-- PANTALLA DEL JUEGO -->
+
+<div id="juego" class="pantalla oculto">
+
+    <h2>NIVEL 1</h2>
+
+    <h3 id="progreso">
+        Residuo 1/10
+    </h3>
+
+    <p id="residuo">
+        🍌 Cáscara de plátano
+    </p>
+
+</div>
 
 <script>
 
-let puntos = 0;
+function iniciarJuego(){
 
-let actual = 0;
+    document.getElementById("inicio").classList.add("oculto");
 
-const residuos = [
-
-{
-nombre:"🥤 Botella de plástico",
-tipo:"Inogánico"
-},
-
-{
-nombre:"🍌 Cáscara de plátano",
-tipo:"orgánico"
-},
-
-{
-nombre:"🔋 Pila",
-tipo:"Inorgánico"
-},
-
-{
-nombre:"📦 Caja de cartón",
-tipo:"Inorgánico"
-}
-
-];
-
-function mostrarResiduo(){
-
-document.getElementById("residuo").innerHTML =
-residuos[actual].nombre;
-
-document.getElementById("progreso").innerHTML =
-"Residuo " + (actual + 1) + "/" + residuos.length;
+    document.getElementById("juego").classList.remove("oculto");
 
 }
-
-function verificar(tipo){
-
-if(tipo === residuos[actual].tipo){
-
-document.getElementById("mensaje").innerHTML =
-"✅ Correcto";
-
-puntos += 10;
-
-}else{
-
-document.getElementById("mensaje").innerHTML =
-"❌ Incorrecto";
-
-}
-
-document.getElementById("puntos").innerHTML =
-puntos;
-
-setTimeout(function(){
-
-actual++;
-
-if(actual < residuos.length){
-
-mostrarResiduo();
-
-document.getElementById("mensaje").innerHTML = "";
-
-}else{
-
-document.body.innerHTML =
-"<h1>🎉 Juego terminado</h1>" +
-"<h2>Puntuación: " + puntos + "</h2>";
-
-}
-
-},1000);
-
-}
-
-mostrarResiduo();
 
 </script>
 
 </body>
-
 </html>
