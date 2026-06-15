@@ -176,6 +176,26 @@ button:hover{
     margin-top:10px;
 
 }
+
+.barra-juego{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+    max-width:700px;
+    margin:0 auto 25px auto;
+    padding:15px 20px;
+    background:#1b5e20;
+    color:white;
+    border-radius:18px;
+    box-shadow:0 6px 16px rgba(0,0,0,.12);
+}
+
+.info-juego{
+    font-weight:bold;
+    font-size:18px;
+}
+    
 </style>
 
 </head>
@@ -207,10 +227,17 @@ button:hover{
 
    <h2>NIVEL 1</h2>
 
-<p>
-🏆 Puntos:
-<span id="puntos">0</span>
-</p>
+<div class="barra-juego">
+
+    <div class="info-juego">
+        <span>NIVEL 1</span>
+    </div>
+
+    <div class="info-juego">
+        🏆 Puntos: <span id="puntos">0</span>
+    </div>
+
+</div>
 
 <h3 id="progreso">
 Residuo 1/10
@@ -604,8 +631,11 @@ function iniciarNivel2(){
     errores = 0;
 
     document.getElementById("juego").innerHTML =
-    "<h2>NIVEL 2: Clasificación por material</h2>" +
-    "<p>🏆 Puntos: <span id='puntos'>0</span></p>" +
+       "<div class='barra-juego'>" +
+        "<div class='info-juego'>NIVEL 2</div>" +
+        "<div class='info-juego'>🏆 Puntos: <span id='puntos'>0</span></div>" +
+        "</div>" +
+        "<h2>Clasificación por material</h2>" +
     "<h3 id='progreso'>Residuo 1/" + residuosActuales.length + "</h3>" +
 "<div class='tarjeta-residuo'>" +
 
