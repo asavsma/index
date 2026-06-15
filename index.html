@@ -48,6 +48,39 @@ button:hover{
     display:block;
     margin:20px auto;
 }
+.contenedores{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:14px;
+    margin-top:20px;
+}
+
+.contenedor-img{
+    width:120px;
+    height:auto;
+    display:block;
+    margin:auto;
+}
+
+.boton-contenedor{
+    background:white;
+    color:#2e7d32;
+    border:2px solid #d9ead9;
+    padding:10px;
+    width:150px;
+    border-radius:16px;
+    box-shadow:0 4px 10px rgba(0,0,0,.08);
+}
+
+.insignia-img{
+    width:180px;
+    max-width:80%;
+    height:auto;
+    display:block;
+    margin:15px auto;
+}
+    
 </style>
 
 </head>
@@ -96,13 +129,17 @@ Cáscara de plátano
 
 <br>
 
-<button onclick="verificar('organico')">
-🟢 Orgánico
+<div class="contenedores">
+
+<button class="boton-contenedor" onclick="verificar('organico')">
+<img class="contenedor-img" src="img/contenedor-organico.png" alt="Orgánico">
 </button>
 
-<button onclick="verificar('inorganico')">
-⚫ Inorgánico
+<button class="boton-contenedor" onclick="verificar('inorganico')">
+<img class="contenedor-img" src="img/contenedor-inorganico.png" alt="Inorgánico">
 </button>
+
+</div>
 
 <p id="mensaje"></p>
 
@@ -458,27 +495,73 @@ function iniciarNivel2(){
     "<h2>NIVEL 2: Clasificación por material</h2>" +
     "<p>🏆 Puntos: <span id='puntos'>0</span></p>" +
     "<h3 id='progreso'>Residuo 1/" + residuosActuales.length + "</h3>" +
-    "<h1 id='emoji'></h1>" +
-    "<h2 id='nombre'></h2>" +
-    "<br>" +
-    "<button onclick=\"verificarNivel2('organico')\">🟢 Orgánico</button> " +
-    "<button onclick=\"verificarNivel2('papel')\">📄 Papel</button> " +
-    "<button onclick=\"verificarNivel2('madera')\">🪵 Madera</button> " +
-    "<button onclick=\"verificarNivel2('plastico')\">🧴 Plástico</button> " +
-    "<button onclick=\"verificarNivel2('tela')\">👕 Tela</button> " +
-    "<button onclick=\"verificarNivel2('vidrio')\">🍾 Vidrio</button> " +
-    "<button onclick=\"verificarNivel2('metal')\">🥫 Metal</button> " +
-    "<button onclick=\"verificarNivel2('especial')\">⚫ Inorgánico de manejo especial</button>" +
-    "<button onclick=\"verificarNivel2('noreciclable')\">🚫 No reciclable</button>" +
+"<h1 id='emoji'></h1>" +
+"<img id='imagenResiduo' class='residuo-img' src='' alt='Residuo'>" +
+"<h2 id='nombre'></h2>" +
+"<br>" +
+
+"<div class='contenedores'>" +
+
+"<button class='boton-contenedor' onclick=\"verificarNivel2('organico')\">" +
+"<img class='contenedor-img' src='img/contenedor-organico.png' alt='Orgánico'>" +
+"</button>" +
+
+"<button class='boton-contenedor' onclick=\"verificarNivel2('papel')\">" +
+"<img class='contenedor-img' src='img/contenedor-papel.png' alt='Papel'>" +
+"</button>" +
+
+"<button class='boton-contenedor' onclick=\"verificarNivel2('madera')\">" +
+"<img class='contenedor-img' src='img/contenedor-madera.png' alt='Madera'>" +
+"</button>" +
+
+"<button class='boton-contenedor' onclick=\"verificarNivel2('plastico')\">" +
+"<img class='contenedor-img' src='img/contenedor-plastico.png' alt='Plástico'>" +
+"</button>" +
+
+"<button class='boton-contenedor' onclick=\"verificarNivel2('tela')\">" +
+"<img class='contenedor-img' src='img/contenedor-tela.png' alt='Tela'>" +
+"</button>" +
+
+"<button class='boton-contenedor' onclick=\"verificarNivel2('vidrio')\">" +
+"<img class='contenedor-img' src='img/contenedor-vidrio.png' alt='Vidrio'>" +
+"</button>" +
+
+"<button class='boton-contenedor' onclick=\"verificarNivel2('metal')\">" +
+"<img class='contenedor-img' src='img/contenedor-metal.png' alt='Metal'>" +
+"</button>" +
+
+"<button class='boton-contenedor' onclick=\"verificarNivel2('especial')\">" +
+"<img class='contenedor-img' src='img/contenedor-inorganico.png' alt='Inorgánico de manejo especial'>" +
+"</button>" +
+
+"<button class='boton-contenedor' onclick=\"verificarNivel2('noreciclable')\">" +
+"<img class='contenedor-img' src='img/contenedor-no-reciclable.png' alt='No reciclable'>" +
+"</button>" +
+
+"</div>" +
     "<p id='mensaje'></p>";
 
     cargarResiduoNivel2();
 }
 function cargarResiduoNivel2(){
-    document.getElementById("emoji").innerHTML = residuosActuales[actual].emoji;
-    document.getElementById("nombre").innerHTML = residuosActuales[actual].nombre;
-    document.getElementById("progreso").innerHTML = "Residuo " + (actual + 1) + "/" + residuosActuales.length;
-    document.getElementById("puntos").innerHTML = puntos;
+
+    document.getElementById("imagenResiduo").style.display = "block";
+    document.getElementById("emoji").style.display = "none";
+
+    document.getElementById("imagenResiduo").src =
+    residuosActuales[actual].imagen;
+
+    document.getElementById("imagenResiduo").alt =
+    residuosActuales[actual].nombre;
+
+    document.getElementById("nombre").innerHTML =
+    residuosActuales[actual].nombre;
+
+    document.getElementById("progreso").innerHTML =
+    "Residuo " + (actual + 1) + "/" + residuosActuales.length;
+
+    document.getElementById("puntos").innerHTML =
+    puntos;
 }
 
 function verificarNivel2(tipo){
@@ -519,7 +602,7 @@ function obtenerInsignia(puntosTotales){
 
     if(puntosTotales <= 79){
         return {
-            emoji:"🌱",
+            imagen:"img/insignia-aprendiz.png",
             titulo:"Aprendiz Ambiental",
             mensaje:"Estás comenzando tu camino hacia una mejor separación de residuos. Sigue practicando y cada acción contará para cuidar el planeta."
         };
@@ -527,24 +610,16 @@ function obtenerInsignia(puntosTotales){
 
     if(puntosTotales <= 139){
         return {
-            emoji:"♻️",
-            titulo:"Separador Responsable",
-            mensaje:"Conoces las bases de la separación de residuos. Tus decisiones ayudan a reducir la contaminación y aprovechar mejor los materiales."
-        };
-    }
-
-    if(puntosTotales <= 189){
-        return {
-            emoji:"🌳",
+            imagen:"img/insignia-guardian.png",
             titulo:"Guardián Ambiental",
-            mensaje:"Excelente trabajo. Demostraste un gran conocimiento sobre la correcta clasificación de residuos."
+            mensaje:"Con tus acciones ayudas a proteger el medio ambiente y fomentas una cultura de reciclaje responsable."
         };
     }
 
     return {
-        emoji:"👑",
-        titulo:"Rey Reciclador",
-        mensaje:"¡Impresionante! Has dominado la separación de residuos y eres un ejemplo de compromiso ambiental."
+        imagen:"img/insignia-maestro.png",
+        titulo:"Maestro del Reciclaje",
+        mensaje:"¡Excelente trabajo! Has demostrado un gran conocimiento sobre la correcta separación de residuos."
     };
 }
 
@@ -575,7 +650,7 @@ function mostrarPantallaFinal(){
 
     "<div style='margin:30px auto;padding:25px;background:#eef8ee;border-radius:16px;max-width:650px;box-shadow:0 4px 10px rgba(0,0,0,.08);'>" +
 
-    "<div style='font-size:60px;'>" + insignia.emoji + "</div>" +
+    "<img class='insignia-img' src='" + insignia.imagen + "' alt='" + insignia.titulo + "'>" +
 
     "<p style='font-weight:bold;color:#2e7d32;font-size:18px;margin-top:10px;'>INSIGNIA OBTENIDA</p>" +
 
