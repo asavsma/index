@@ -80,7 +80,42 @@ button:hover{
     display:block;
     margin:15px auto;
 }
-    
+.residuo-img{
+    animation: aparecerResiduo .4s ease;
+}
+
+@keyframes aparecerResiduo{
+    from{
+        opacity:0;
+        transform:scale(.8);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+.correcto{
+    animation: rebote .45s ease;
+}
+
+@keyframes rebote{
+    0%{ transform:scale(1); }
+    40%{ transform:scale(1.12); }
+    100%{ transform:scale(1); }
+}
+
+.incorrecto{
+    animation: vibrar .35s ease;
+}
+
+@keyframes vibrar{
+    0%{ transform:translateX(0); }
+    25%{ transform:translateX(-6px); }
+    50%{ transform:translateX(6px); }
+    75%{ transform:translateX(-4px); }
+    100%{ transform:translateX(0); }
+}   
 </style>
 
 </head>
@@ -430,6 +465,13 @@ function cargarResiduo(){
 }
 
 function verificar(tipo){
+
+    const imagen = document.getElementById("imagenResiduo");
+
+    imagen.classList.remove("correcto", "incorrecto");
+
+    void imagen.offsetWidth;
+    
     if(tipo === nivel1[actual].tipo){
         document.getElementById("mensaje").innerHTML = "✅ ¡Correcto!";
         puntos += 10;
@@ -437,8 +479,9 @@ function verificar(tipo){
     }else{
         document.getElementById("mensaje").innerHTML = "❌ Respuesta incorrecta";
         errores++;
-    }
-
+        imagen.classList.add("incorrecto");
+    }    
+    
     document.getElementById("puntos").innerHTML = puntos;
 
     document.getElementById("mensaje").innerHTML +=
