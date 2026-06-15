@@ -87,7 +87,7 @@ button:hover{
 <h3 id="progreso">
 Residuo 1/10
 </h3>
-
+<h1 id="emoji"></h1>
 <img id="imagenResiduo" class="residuo-img" src="" alt="Residuo">
 
 <h2 id="nombre">
@@ -118,7 +118,7 @@ tipo:"organico",
 explicacion:"Las cáscaras de frutas son residuos orgánicos y pueden aprovecharse para elaborar composta."
 },
 {
-imagen:"restos-manzana.png",
+imagen:"img/restos-manzana.png",
 nombre:"Restos de manzana",
 tipo:"organico",
 explicacion:"Los restos de frutas son biodegradables y pueden transformarse en abono natural."
@@ -369,6 +369,9 @@ function cargarResiduo(){
         document.getElementById("imagenResiduo").src =
         nivel1[actual].imagen;
 
+        document.getElementById("imagenResiduo").alt =
+        nivel1[actual].nombre;
+
     }else{
 
         document.getElementById("imagenResiduo").style.display = "none";
@@ -381,6 +384,12 @@ function cargarResiduo(){
 
     document.getElementById("nombre").innerHTML =
     nivel1[actual].nombre;
+
+    document.getElementById("progreso").innerHTML =
+    "Residuo " + (actual + 1) + "/" + nivel1.length;
+
+    document.getElementById("puntos").innerHTML =
+    puntos;
 }
 
 function verificar(tipo){
