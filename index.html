@@ -118,7 +118,7 @@ tipo:"organico",
 explicacion:"Las cáscaras de frutas son residuos orgánicos y pueden aprovecharse para elaborar composta."
 },
 {
-emoji:"🍎",
+imagen:"restos-manzana.png",
 nombre:"Restos de manzana",
 tipo:"organico",
 explicacion:"Los restos de frutas son biodegradables y pueden transformarse en abono natural."
@@ -360,11 +360,27 @@ function iniciarJuego(){
 }
 
 function cargarResiduo(){
-    document.getElementById("imagenResiduo").src = nivel1[actual].imagen;
-    document.getElementById("imagenResiduo").alt = nivel1[actual].nombre;
-    document.getElementById("nombre").innerHTML = nivel1[actual].nombre;
-    document.getElementById("progreso").innerHTML = "Residuo " + (actual + 1) + "/" + nivel1.length;
-    document.getElementById("puntos").innerHTML = puntos;
+
+    if(nivel1[actual].imagen){
+
+        document.getElementById("imagenResiduo").style.display = "block";
+        document.getElementById("emoji").style.display = "none";
+
+        document.getElementById("imagenResiduo").src =
+        nivel1[actual].imagen;
+
+    }else{
+
+        document.getElementById("imagenResiduo").style.display = "none";
+        document.getElementById("emoji").style.display = "block";
+
+        document.getElementById("emoji").innerHTML =
+        nivel1[actual].emoji;
+
+    }
+
+    document.getElementById("nombre").innerHTML =
+    nivel1[actual].nombre;
 }
 
 function verificar(tipo){
