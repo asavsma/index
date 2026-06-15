@@ -41,7 +41,13 @@ button:hover{
 .oculto{
     display:none;
 }
-
+.residuo-img{
+    width:180px;
+    max-width:80%;
+    height:auto;
+    display:block;
+    margin:20px auto;
+}
 </style>
 
 </head>
@@ -82,9 +88,7 @@ button:hover{
 Residuo 1/10
 </h3>
 
-<h1 id="emoji">
-🍌
-</h1>
+<img id="imagenResiduo" class="residuo-img" src="" alt="Residuo">
 
 <h2 id="nombre">
 Cáscara de plátano
@@ -108,7 +112,7 @@ Cáscara de plátano
 
 const nivel1 = [
 {
-emoji:"🍌",
+imagen:"img/cascara-platano.png",
 nombre:"Cáscara de plátano",
 tipo:"organico",
 explicacion:"Las cáscaras de frutas son residuos orgánicos y pueden aprovecharse para elaborar composta."
@@ -120,7 +124,7 @@ tipo:"organico",
 explicacion:"Los restos de frutas son biodegradables y pueden transformarse en abono natural."
 },
 {
-emoji:"📦",
+imagen:"img/caja-cereal.png",
 nombre:"Caja de cereal",
 tipo:"inorganico",
 explicacion:"Las cajas de cereal están hechas principalmente de cartón y deben separarse para facilitar su reciclaje."
@@ -356,7 +360,8 @@ function iniciarJuego(){
 }
 
 function cargarResiduo(){
-    document.getElementById("emoji").innerHTML = nivel1[actual].emoji;
+    document.getElementById("imagenResiduo").src = nivel1[actual].imagen;
+    document.getElementById("imagenResiduo").alt = nivel1[actual].nombre;
     document.getElementById("nombre").innerHTML = nivel1[actual].nombre;
     document.getElementById("progreso").innerHTML = "Residuo " + (actual + 1) + "/" + nivel1.length;
     document.getElementById("puntos").innerHTML = puntos;
