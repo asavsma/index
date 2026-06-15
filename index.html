@@ -128,7 +128,44 @@ button:hover{
 .boton-contenedor:active{
     transform: scale(0.96);
 }
-    
+
+.tarjeta-residuo{
+
+    background:white;
+
+    max-width:500px;
+
+    margin:25px auto;
+
+    padding:30px;
+
+    border-radius:22px;
+
+    box-shadow:0 6px 18px rgba(0,0,0,.12);
+
+    transition:.3s;
+
+}
+
+.tarjeta-residuo:hover{
+
+    transform:translateY(-3px);
+
+}
+
+.residuo-img{
+
+    width:220px;
+
+    max-width:90%;
+
+    height:auto;
+
+    display:block;
+
+    margin:10px auto 20px auto;
+
+}   
 </style>
 
 </head>
@@ -168,12 +205,21 @@ button:hover{
 <h3 id="progreso">
 Residuo 1/10
 </h3>
-<h1 id="emoji"></h1>
-<img id="imagenResiduo" class="residuo-img" src="" alt="Residuo">
 
-<h2 id="nombre">
-Cáscara de plátano
-</h2>
+<div class="tarjeta-residuo">
+
+    <h1 id="emoji"></h1>
+
+    <img id="imagenResiduo"
+         class="residuo-img"
+         src=""
+         alt="Residuo">
+
+    <h2 id="nombre">
+        Cáscara de plátano
+    </h2>
+
+</div>
 
 <br>
 
