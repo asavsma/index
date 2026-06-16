@@ -798,9 +798,10 @@ function iniciarNivel2(){
     errores = 0;
 
     document.getElementById("juego").innerHTML =
-       "<div class='barra-juego'>" +
-        "<div class='info-juego'>NIVEL 2</div>" +
-        "<div class='info-juego'>🏆 Puntos: <span id='puntos'>0</span></div>" +
+       "<div class='panel-estado'>" +
+        "<div>🌱 <span id='nivelTexto'>Nivel 2</span></div>" +
+        "<div>🏆 <span id='puntos'>0</span> pts</div>" +
+        "<div>📋 <span id='progreso'>1/" + residuosActuales.length + "</span></div>" +
         "</div>" +
         "<h2 class='titulo-seccion'>♻️ Clasificación por material</h2>" +
     "<h3 id='progreso'>Residuo 1/" + residuosActuales.length + "</h3>" +
